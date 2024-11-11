@@ -1,0 +1,310 @@
+<html><head><base href="[current_page_url]">
+<title>Mr Joa - Artista Trap & Freestyle</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary-color: #f37331;
+    --secondary-color: #211e1d;
+    --accent-color: #f48244;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(33,30,29,0.8), rgba(243,115,49,0.3)),
+                url('/joaquinzl_-20241109-0001-transformed.jpeg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.artist-name {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 8rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(243,115,49,0.5);
+    animation: glow 2s infinite alternate;
+    position: relative;
+}
+
+.artist-name::after {
+    content: 'Mr Joa';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    color: var(--accent-color);
+    z-index: -1;
+    filter: blur(4px);
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px rgba(243,115,49,0.5);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(243,115,49,0.8),
+                     0 0 40px rgba(244,130,68,0.6),
+                     0 0 50px rgba(243,115,49,0.4);
+    }
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 100;
+    background: rgba(33,30,29,0.9);
+    backdrop-filter: blur(10px);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    padding: 8px 15px;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    transition: all 0.3s;
+    z-index: -1;
+}
+
+.nav-links a:hover::before {
+    left: 0;
+}
+
+.nav-links a:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.latest-releases {
+    padding: 100px 20px;
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color) 300%);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--accent-color);
+    position: relative;
+    text-transform: uppercase;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.biography {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, var(--secondary-color) 0%, var(--secondary-color) 100%);
+    position: relative;
+}
+
+.biography::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(33,30,29,0.9), rgba(33,30,29,0.9)),
+                url('/joaquinzl_-20241109-0001-transformed.jpeg') center/cover;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+.bio-container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(33,30,29,0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(243,115,49,0.3);
+}
+
+.bio-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.bio-edit-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.bio-edit-btn:hover {
+    background: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.bio-textarea {
+    width: 100%;
+    min-height: 200px;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.bio-textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.youtube-section {
+    padding: 100px 20px;
+    background: var(--secondary-color);
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .artist-name {
+        font-size: 4rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bio-container {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="#home">Inicio</a>
+            <a href="#bio">Biografía</a>
+            <a href="#youtube">YouTube</a>
+            <a href="https://instagram.com/artistaname" target="_blank">Instagram</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="artist-name">Mr Joa</h1>
+            <p>TRAP & FREESTYLE</p>
+        </div>
+    </section>
+
+    <section id="bio" class="biography">
+        <h2 class="section-title">Biografía</h2>
+        <div class="bio-container">
+            <div id="bioText" class="bio-text">
+                Mr Joa, nacido en las calles del underground, es un artista que fusiona el trap con el freestyle de una manera única y personal. Su música refleja las experiencias vividas en la calle, mezcladas con un estilo contemporáneo que cautiva a su audiencia. Desde muy joven, demostró su talento en batallas de freestyle, lo que le permitió desarrollar una lírica afilada y un flow distintivo.
+            </div>
+            <textarea id="bioTextarea" class="bio-textarea"></textarea>
+            <button class="bio-edit-btn" onclick="toggleEdit()">Editar Biografía</button>
+        </div>
+    </section>
+
+    <section id="youtube" class="youtube-section">
+        <h2 class="section-title">YouTube</h2>
+        <script src="https://static.elfsight.com/platform/platform.js" async></script>
+        <div class="elfsight-app-bec14e45-ff24-4e52-8951-004936c81f3d" data-elfsight-app-lazy></div>
+    </section>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+function toggleEdit() {
+    const bioText = document.getElementById('bioText');
+    const bioTextarea = document.getElementById('bioTextarea');
+    const editBtn = document.querySelector('.bio-edit-btn');
+
+    if (bioText.style.display !== 'none') {
+        bioTextarea.value = bioText.textContent.trim();
+        bioText.style.display = 'none';
+        bioTextarea.style.display = 'block';
+        editBtn.textContent = 'Guardar';
+    } else {
+        bioText.textContent = bioTextarea.value;
+        bioText.style.display = 'block';
+        bioTextarea.style.display = 'none';
+        editBtn.textContent = 'Editar Biografía';
+    }
+}
+</script>
+</body>
+</html>
